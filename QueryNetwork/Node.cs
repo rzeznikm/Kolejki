@@ -100,5 +100,38 @@ namespace QueryNetwork
         {
             return nextSystemsValues.Values.Max();
         }
+
+        public int getBestNextSystem()
+        {
+            KeyValuePair<int, float> max = new KeyValuePair<int, float>();
+            foreach(var sys in nextSystemsValues)
+            {
+                if (sys.Value > max.Value)
+                    max = sys;
+            }
+            return max.Key;
+        }
+
+        public int getCheckoutsNumber()
+        {
+            int numb = 0;
+            foreach (var time in timeCounter)
+                if (time == 0)
+                    numb++;
+            return numb;
+        }
+
+        public void CheckInAllClients()
+        {
+            for(int i=0; i<timeCounter.Count;i++)
+            {
+                if (timeCounter[i] == 0)
+                {
+                    timeCounter.RemoveAt(i);
+                    customerCount--;
+                }
+            }
+        }
+
     }
 }
