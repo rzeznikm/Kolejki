@@ -9,7 +9,6 @@ namespace QueryNetwork
     class Network
     {
         private List<Node> listOfNodes; // Lista systemów w sieci
-
     }
 }
 
