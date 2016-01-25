@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace QueryNetwork
 {
-    class Node
+    public class Node
     {
         private int id { get;} // Numer systemu 
         private int serviceChannelsNumber { get;} // ilośc kanałów obsługi (-1 dla nieskończoności)
         private int queueMaxSize { get; } // Rozmiar kolejki (-1 dla nieskończoności)
-        private int customerCount { get; set; } // Aktualna liczba zgłoszeń
+        public int customerCount { get; set; } // Aktualna liczba zgłoszeń
         private int checkoutTime { get; } // Czas obsługi dla danej klasy zgłoszenia
         private List<int> timeCounter { get; } //Licznik czasu obsługi
         private Dictionary<int, float> nextSystemsValues { get; } //Następne systemy i wartości Oczekiwane
@@ -131,6 +131,11 @@ namespace QueryNetwork
                     customerCount--;
                 }
             }
+        }
+
+        public void updateExpectedValue(int systemNumber, float newValue)
+        {
+            nextSystemsValues[systemNumber] = newValue;
         }
 
     }
