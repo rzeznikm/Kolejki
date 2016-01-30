@@ -39,7 +39,7 @@ namespace QueryNetwork
 
         private void moveCustomersinNetwork()
         {
-            for(int i = (listOfNodes.Count-1);i>0;i--)
+            for(int i = (listOfNodes.Count-1);i>=0;i--)
             {
                 int freeCustomersCount = listOfNodes[i].getCheckoutsNumber();
                 moveCustomersFromSystem(i, freeCustomersCount);
@@ -62,17 +62,21 @@ namespace QueryNetwork
 
         private void updateRewards(ref List<Node> nodes, int baseNode, int nextNode)
         {
-            throw new NotImplementedException();
+            QLearningSolver.updateRewards(ref nodes, baseNode, nextNode);
         }
 
+        public List<int> getClientNumberForEachNode()
+        {
+            List<int> clientNumber = new List<int>();
+            foreach(var node in listOfNodes)
+            {
+                clientNumber.Add(node.customerCount);
+            }
+            return clientNumber;
+        }
 
     }
 }
 
-/*
- * Do sieci wchodzi nowe zgłoszenie
- * Zostaje przydzielone do systemu początkowego We (sztuczny lub wybrany z dostępnych).
- * Zwiększona zostaje aktualna liczba zgłoszeń w danym systemie: +1.
- *
- */
+
 

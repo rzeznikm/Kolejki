@@ -8,9 +8,9 @@ namespace QueryNetwork
 {
     public static class QLearningSolver
     {
-        public static float alpha = 0.9F;
+        public static float alpha = 1F;
         public static float reward;
-        public static float gamma;
+        public static float gamma =  1F;
         public static float bestExpectedValue;
         public static float QValue;
 
@@ -42,7 +42,11 @@ namespace QueryNetwork
         private static void setRewards(List<Node> nodes, int nextNode)
         {
             bestExpectedValue = nodes[nextNode].getMaximumReward();
-            reward = -(nodes[nextNode].customerCount - nodes[nextNode].serviceChannelsNumber) * nodes[nextNode].checkoutTime;
+            if (nodes[nextNode].customerCount == (nodes[nextNode].queueMaxSize + nodes[nextNode].serviceChannelsNumber))
+                reward = -1000F;
+            else
+                reward = 0F;
+            reward += -((nodes[nextNode].customerCount - nodes[nextNode].serviceChannelsNumber) * nodes[nextNode].checkoutTime)-0.1F;
         }
 
     }

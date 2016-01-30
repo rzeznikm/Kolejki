@@ -70,19 +70,23 @@ namespace QueryNetwork
 
         public void performTimeEvent()
         {
-            if (infChanel())
+            if (timeCounter.Count > 0)
             {
-                decrementTimerForEachChanel(timeCounter.Count);
-            }
-            else
-            {
-                decrementTimerForEachChanel(serviceChannelsNumber);
+                if (infChanel())
+                {
+                    decrementTimerForEachChanel(timeCounter.Count);
+                }
+                else
+                {
+                    decrementTimerForEachChanel(serviceChannelsNumber);
+                }
             }
         }
 
         private void decrementTimerForEachChanel(int chanelNumber)
         {
-            for (int i = 0; i < chanelNumber; i++)
+            int servingClients = (customerCount > chanelNumber) ? chanelNumber : customerCount;
+            for (int i = 0; i < servingClients; i++)
                 if (timeCounter[i] > 0)
                     timeCounter[i]--;
         }
@@ -103,7 +107,8 @@ namespace QueryNetwork
 
         public int getBestNextSystem()
         {
-            KeyValuePair<int, float> max = new KeyValuePair<int, float>();
+            KeyValuePair<int, float> max = new KeyValuePair<int, float>(0,Single.MinValue);
+
             foreach(var sys in nextSystemsValues)
             {
                 if (sys.Value > max.Value)
@@ -123,7 +128,8 @@ namespace QueryNetwork
 
         public void CheckInAllClients()
         {
-            for(int i=0; i<timeCounter.Count;i++)
+            int timeCounterLength = timeCounter.Count - 1;
+            for(int i= timeCounterLength; i>=0;i--)
             {
                 if (timeCounter[i] == 0)
                 {
