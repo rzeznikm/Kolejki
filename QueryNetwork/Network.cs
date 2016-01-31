@@ -75,6 +75,16 @@ namespace QueryNetwork
             return clientNumber;
         }
 
+        public List<int> getCustomerSumForEachNode()
+        {
+            List<int> customerSum = new List<int>();
+            foreach(Node node in listOfNodes)
+            {
+                customerSum.Add(node.customerSum);
+            }
+            return customerSum;
+        }
+
     }
 }
 
