@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QueryNetwork;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,12 @@ namespace GUI
     /// </summary>
     public partial class App : Application
     {
+        public string DeptName { get; set; }
+
+        public Network network { get; set; }
+
+        public int percentage { get; set; }
+
+        public List<DisplayModel> displaymodelList { get; set; }
     }
 }

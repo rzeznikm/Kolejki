@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,11 @@ namespace WpfApplication1
         {
             InitializeComponent();
             InitBinding();
+
+            
         }
+
+        
 
         private void InitBinding()
         {
@@ -43,6 +48,19 @@ namespace WpfApplication1
             m_oPersonList.Add(new Person(id, TXB_1.Text, TXB_2.Text, int.Parse(TXB_3.Text)));
             lstPersons.ItemsSource = null;
             lstPersons.ItemsSource = m_oPersonList;
+        }
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            // ... Create a List of objects.
+            var items = new List<Person>();
+            items.Add(new Person(1, "Jan", "Kowalski", 25));
+            items.Add(new Person(2, "Adam", "Nowak", 24));
+      
+
+            // ... Assign ItemsSource of DataGrid.
+            var grid = sender as DataGrid;
+            grid.ItemsSource = items;
         }
     }
 }

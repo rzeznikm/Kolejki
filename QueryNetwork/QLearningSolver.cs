@@ -10,9 +10,10 @@ namespace QueryNetwork
     {
         public static float alpha = 1F;
         public static float reward;
-        public static float gamma =  1F;
+        public static float gamma = 1F;
         public static float bestExpectedValue;
         public static float QValue;
+
 
         public static void updateRewards(ref List<Node> nodes, int baseNode, int nextNode)
         {
