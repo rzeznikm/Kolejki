@@ -40,16 +40,29 @@ namespace GUI
 
         private void BT_Add_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current as App).displaymodelList.Insert(Id, new DisplayModel()
+            if(Id == 0)
             {
-                id = Id,
-                serviceChannelsNumber = int.Parse(TXB_1.Text),
-                queueMaxSize = int.Parse(TXB_2.Text),
-                checkoutTime = int.Parse(TXB_3.Text),
-                systems = TXB_4.Text
-            });
-            Id++;
-            (App.Current as App).displaymodelList[Id].id = Id;
+                (App.Current as App).displaymodelList.Add(new DisplayModel()
+                {
+                    id = Id,
+                    serviceChannelsNumber = int.Parse(TXB_1.Text),
+                    queueMaxSize = int.Parse(TXB_2.Text),
+                    checkoutTime = int.Parse(TXB_3.Text),
+                    systems = TXB_4.Text
+                });
+            }
+            else
+            {
+                (App.Current as App).displaymodelList.Insert(Id, new DisplayModel()
+                {
+                    id = Id,
+                    serviceChannelsNumber = int.Parse(TXB_1.Text),
+                    queueMaxSize = int.Parse(TXB_2.Text),
+                    checkoutTime = int.Parse(TXB_3.Text),
+                    systems = TXB_4.Text
+                });
+            }           
+            Id++;          
 
             NodeList.ItemsSource = null;
             NodeList.ItemsSource = (App.Current as App).displaymodelList;
@@ -70,7 +83,7 @@ namespace GUI
             //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 3, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "0" });
             //-----
 
-            Id = 1;
+            
             NodeList.ItemsSource = (App.Current as App).displaymodelList;
         }
 
