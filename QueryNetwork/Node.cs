@@ -8,12 +8,12 @@ namespace QueryNetwork
 {
     public class Node
     {
-        private int id { get; } // Numer systemu 
-        public int serviceChannelsNumber { get; } // ilośc kanałów obsługi (-1 dla nieskończoności)
-        public int queueMaxSize { get; } // Rozmiar kolejki (-1 dla nieskończoności)
+        public int id { get; set; } // Numer systemu 
+        public int serviceChannelsNumber { get; set; } // ilośc kanałów obsługi (-1 dla nieskończoności)
+        public int queueMaxSize { get; set; } // Rozmiar kolejki (-1 dla nieskończoności)
         public int customerCount { get; set; } // Aktualna liczba zgłoszeń
-        public int checkoutTime { get; } // Czas obsługi dla danej klasy zgłoszenia
-        private List<int> timeCounter { get; } //Licznik czasu obsługi
+        public int checkoutTime { get; set; } // Czas obsługi dla danej klasy zgłoszenia
+        private List<int> timeCounter { get; set; } //Licznik czasu obsługi
         public Dictionary<int, float> nextSystemsValues { get; set; } //Następne systemy i wartości Oczekiwane
         public int customerSum { get; set; }
 
