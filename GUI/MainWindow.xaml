@@ -27,8 +27,7 @@
         </ListView>
         <Button x:Name="BT_Add" Content="Add Node" HorizontalAlignment="Left" Margin="629,159,0,0" VerticalAlignment="Top" Width="75" Click="BT_Add_Click"/>
         <TextBox x:Name="TXB_4" HorizontalAlignment="Left" Height="23" Margin="476,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="BT_Run" Content="Simulation" HorizontalAlignment="Left" Margin="629,307,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click"/>
-        <Button x:Name="BT_Confirm" Content="Confirm" HorizontalAlignment="Left" Margin="629,231,0,0" VerticalAlignment="Top" Width="75" Click="BT_Confirm_Click"/>
+        <Button x:Name="BT_Run" Content="Simulation" HorizontalAlignment="Left" Margin="629,335,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click"/>
         <Slider x:Name="Slider1" HorizontalAlignment="Left" Margin="269,77,0,0" VerticalAlignment="Top" Width="140" ValueChanged="Slider_ValueChanged" SmallChange="1" Maximum="100"/>
         <TextBox x:Name="TXB_5" HorizontalAlignment="Left" Height="23" Margin="443,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Text="0"/>
         <TextBlock HorizontalAlignment="Left" Margin="92,77,0,0" TextWrapping="Wrap" Text="Add customer % chance" VerticalAlignment="Top" Width="146"/>
@@ -36,6 +35,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="185,133,0,0" TextWrapping="Wrap" Text="queueMaxSize" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="337,133,0,0" TextWrapping="Wrap" Text="checkoutTime" VerticalAlignment="Top" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="486,136,0,0" TextWrapping="Wrap" Text="systems (eg. 1,3,6)" VerticalAlignment="Top" Width="97"/>
+        <Button Content="Sample data" HorizontalAlignment="Left" Margin="629,222,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="BT_Clear" Content="Clear" HorizontalAlignment="Left" Margin="629,283,0,0" VerticalAlignment="Top" Width="75" Click="BT_Clear_Click"/>
 
     </Grid>
 </Window>
