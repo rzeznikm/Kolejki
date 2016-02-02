@@ -21,6 +21,7 @@ namespace GUI
     {
         private int runs = 0;
         private int clients = 0;
+        private bool noMoreClients = false;
 
         public Window1()
         {
@@ -32,7 +33,7 @@ namespace GUI
         {
             Random r = new Random();
             int n = r.Next(1, 100);
-            if (n < (App.Current as App).percentage)
+            if (n < (App.Current as App).percentage && noMoreClients == false)
             {
                 n = r.Next(1, 100);
                 if(n < 60)
@@ -72,6 +73,11 @@ namespace GUI
 
             Results.ItemsSource = null;
             Results.ItemsSource = (App.Current as App).displaymodelList;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            noMoreClients = true;
         }
     }
 }
