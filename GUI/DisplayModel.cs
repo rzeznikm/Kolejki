@@ -14,6 +14,6 @@ namespace GUI
         public int checkoutTime { get; set; }
         public string systems { get; set; }
         public int customersNr { get; set; }
-
+        public int clientsNr { get; set; }
     }
 }

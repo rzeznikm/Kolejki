@@ -29,13 +29,10 @@ namespace GUI
         {
             InitializeComponent();
             InitNetwork();
-
-            (App.Current as App).DeptName = "test";
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void BT_Add_Click(object sender, RoutedEventArgs e)
@@ -71,20 +68,8 @@ namespace GUI
         private void InitNetwork()
         {
             (App.Current as App).displaymodelList = new List<DisplayModel>();
-
-            //----
-            //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 0, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "1,2" });
-            //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 1, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "0" });
-            //----
-            //---- TESTOWE 
-            //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 0, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "1,2" });
-            //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 1, serviceChannelsNumber = 2, queueMaxSize = 4, checkoutTime = 3, systems = "3" });
-            //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 2, serviceChannelsNumber = 1, queueMaxSize = 4, checkoutTime = 4, systems = "3" });
-            //(App.Current as App).displaymodelList.Add(new DisplayModel() { id = 3, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "0" });
-            //-----
-
             
-            NodeList.ItemsSource = (App.Current as App).displaymodelList;
+            //NodeList.ItemsSource = (App.Current as App).displaymodelList;
         }
 
         private void BT_Run_Click(object sender, RoutedEventArgs e)
@@ -116,7 +101,6 @@ namespace GUI
 
         private void NodeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -131,7 +115,7 @@ namespace GUI
             (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 1, serviceChannelsNumber = 2, queueMaxSize = 4, checkoutTime = 3, systems = "3" });
             (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 2, serviceChannelsNumber = 1, queueMaxSize = 4, checkoutTime = 4, systems = "3" });
             (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 3, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "0" });
-
+            Id = 4;
             NodeList.ItemsSource = null;
             NodeList.ItemsSource = (App.Current as App).displaymodelList;              
         }
@@ -142,7 +126,5 @@ namespace GUI
             NodeList.ItemsSource = null;
             NodeList.ItemsSource = (App.Current as App).displaymodelList; 
         }
-
-
     }
 }

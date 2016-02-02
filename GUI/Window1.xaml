@@ -3,19 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Window1" Height="408.511" Width="455.319">
     <Grid>
-        <Button x:Name="BT_Run" Content="Run" HorizontalAlignment="Left" Margin="175,34,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click"/>
-        <ListView Name="Results" HorizontalAlignment="Left" Height="183" Margin="140,116,0,0" VerticalAlignment="Top" Width="133">
+        <Button x:Name="BT_Run" Content="Run" HorizontalAlignment="Left" Margin="170,26,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click"/>
+        <ListView Name="Results" HorizontalAlignment="Left" Height="183" Margin="110,115,0,0" VerticalAlignment="Top" Width="195">
             <ListView.View>
                 <GridView AllowsColumnReorder="True">
                     <GridView.Columns>
                         <GridViewColumn Header="Id"
-                            DisplayMemberBinding="{Binding id}" Width="30" />             
+                            DisplayMemberBinding="{Binding id}" Width="30" />
                         <GridViewColumn Header="customersNr"
-                            DisplayMemberBinding="{Binding customersNr}" Width="100" />
+                            DisplayMemberBinding="{Binding customersNr}" Width="80" />
+                        <GridViewColumn Header="clientsNr"
+                            DisplayMemberBinding="{Binding clientsNr}" Width="80" />
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox x:Name="TXB_Runs" HorizontalAlignment="Left" Height="23" Margin="110,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.043,1.68"/>
+        <TextBox x:Name="TXB_Clients" HorizontalAlignment="Left" Height="23" Margin="230,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="136,59,0,0" TextWrapping="Wrap" Text="Runs" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="251,59,0,0" TextWrapping="Wrap" Text="Clients" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
