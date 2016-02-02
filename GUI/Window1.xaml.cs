@@ -34,8 +34,22 @@ namespace GUI
             int n = r.Next(1, 100);
             if (n < (App.Current as App).percentage)
             {
-                (App.Current as App).network.insertCustomer(1);
-                clients++;
+                n = r.Next(1, 100);
+                if(n < 60)
+                {
+                    (App.Current as App).network.insertCustomer(1);
+                    clients += 1;
+                }
+                if (n >= 60 && n < 90)
+                {
+                    (App.Current as App).network.insertCustomer(2);
+                    clients += 2;
+                }
+                if (n >= 90)
+                {
+                    (App.Current as App).network.insertCustomer(3);
+                    clients += 3;
+                }
                 TXB_Clients.Text = clients.ToString();
             }
             (App.Current as App).network.performTimeCirlce();
