@@ -84,6 +84,8 @@ namespace GUI
                 nodes.Add(node);
             }
             (App.Current as App).network = new Network(nodes);
+            (App.Current as App).network.alpha = Convert.ToSingle(alpha);
+            (App.Current as App).network.gamma = Convert.ToSingle(gamma);  
 
             (App.Current as App).percentage = percentLocal;
             Window1 win1 = new Window1();
@@ -130,6 +132,24 @@ namespace GUI
             (App.Current as App).displaymodelList = new List<DisplayModel>();
             NodeList.ItemsSource = null;
             NodeList.ItemsSource = (App.Current as App).displaymodelList; 
+        }
+
+        private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+           // alpha = S_alpha.Value;
+           // TXB_Alpha.Text = alpha.ToString();
+        }
+
+        private void S_gamma_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            gamma = S_gamma.Value;
+            TXB_Gamma.Text = gamma.ToString();
+        }
+
+        private void Slider_alpha_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            alpha = Slider_alpha.Value;
+            TXB_A.Text = alpha.ToString();
         }
     }
 }
