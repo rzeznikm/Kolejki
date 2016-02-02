@@ -39,39 +39,41 @@ namespace GUI
 
         private void BT_Add_Click(object sender, RoutedEventArgs e)
         {
-            if(Id == 0)
+            if (TXB_1.Text != "" && TXB_2.Text != "" && TXB_3.Text != "" && TXB_4.Text != "")
             {
-                (App.Current as App).displaymodelList.Add(new DisplayModel()
+                if (Id == 0)
                 {
-                    id = Id,
-                    serviceChannelsNumber = int.Parse(TXB_1.Text),
-                    queueMaxSize = int.Parse(TXB_2.Text),
-                    checkoutTime = int.Parse(TXB_3.Text),
-                    systems = TXB_4.Text
-                });
-            }
-            else
-            {
-                (App.Current as App).displaymodelList.Insert(Id, new DisplayModel()
+                    (App.Current as App).displaymodelList.Add(new DisplayModel()
+                    {
+                        id = Id,
+                        serviceChannelsNumber = int.Parse(TXB_1.Text),
+                        queueMaxSize = int.Parse(TXB_2.Text),
+                        checkoutTime = int.Parse(TXB_3.Text),
+                        systems = TXB_4.Text
+                    });
+                }
+                else
                 {
-                    id = Id,
-                    serviceChannelsNumber = int.Parse(TXB_1.Text),
-                    queueMaxSize = int.Parse(TXB_2.Text),
-                    checkoutTime = int.Parse(TXB_3.Text),
-                    systems = TXB_4.Text
-                });
-            }           
-            Id++;          
+                    (App.Current as App).displaymodelList.Insert(Id, new DisplayModel()
+                    {
+                        id = Id,
+                        serviceChannelsNumber = int.Parse(TXB_1.Text),
+                        queueMaxSize = int.Parse(TXB_2.Text),
+                        checkoutTime = int.Parse(TXB_3.Text),
+                        systems = TXB_4.Text
+                    });
+                }
+                Id++;
 
-            NodeList.ItemsSource = null;
-            NodeList.ItemsSource = (App.Current as App).displaymodelList;
+                NodeList.ItemsSource = null;
+                NodeList.ItemsSource = (App.Current as App).displaymodelList;
+            }
+            
         }
 
         private void InitNetwork()
         {
             (App.Current as App).displaymodelList = new List<DisplayModel>();
-            
-            //NodeList.ItemsSource = (App.Current as App).displaymodelList;
         }
 
         private void BT_Run_Click(object sender, RoutedEventArgs e)
@@ -132,12 +134,6 @@ namespace GUI
             (App.Current as App).displaymodelList = new List<DisplayModel>();
             NodeList.ItemsSource = null;
             NodeList.ItemsSource = (App.Current as App).displaymodelList; 
-        }
-
-        private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-           // alpha = S_alpha.Value;
-           // TXB_Alpha.Text = alpha.ToString();
         }
 
         private void S_gamma_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
