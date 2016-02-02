@@ -111,10 +111,13 @@ namespace GUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 0, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "1,2" });
-            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 1, serviceChannelsNumber = 2, queueMaxSize = 4, checkoutTime = 3, systems = "3" });
-            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 2, serviceChannelsNumber = 1, queueMaxSize = 4, checkoutTime = 4, systems = "3" });
-            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 3, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "0" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 0, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "1,2,3" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 1, serviceChannelsNumber = 2, queueMaxSize = 10, checkoutTime = 3, systems = "2,4" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 2, serviceChannelsNumber = 1, queueMaxSize = 8, checkoutTime = 4, systems = "4,5" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 3, serviceChannelsNumber = 2, queueMaxSize = 9, checkoutTime = 5, systems = "5" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 4, serviceChannelsNumber = 3, queueMaxSize = 11, checkoutTime = 3, systems = "6" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 5, serviceChannelsNumber = 2, queueMaxSize = 8, checkoutTime = 5, systems = "6" });
+            (App.Current as App).displaymodelList.Add(new DisplayModel() { id = 6, serviceChannelsNumber = -1, queueMaxSize = -1, checkoutTime = 0, systems = "0" });
             Id = 4;
             NodeList.ItemsSource = null;
             NodeList.ItemsSource = (App.Current as App).displaymodelList;              
