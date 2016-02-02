@@ -8,6 +8,9 @@ namespace QueryNetwork
 {
     public class Network
     {
+        public float alpha { get; set; }
+        public float gamma { get; set; }
+
         private List<Node> listOfNodes; // Lista systemów w sieci
 
         public Network(List<Node> list)
@@ -62,7 +65,7 @@ namespace QueryNetwork
 
         private void updateRewards(ref List<Node> nodes, int baseNode, int nextNode)
         {
-            QLearningSolver.updateRewards(ref nodes, baseNode, nextNode);
+            QLearningSolver.updateRewards(ref nodes, baseNode, nextNode, alpha, gamma);
         }
 
         public List<int> getClientNumberForEachNode()

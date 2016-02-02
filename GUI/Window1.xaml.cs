@@ -55,14 +55,14 @@ namespace GUI
             (App.Current as App).network.performTimeCirlce();
             var customerInNodes = (App.Current as App).network.getCustomerSumForEachNode();
                   
-            for (int i = 1; i < customerInNodes.Count - 1; i++)
+            for (int i = 0; i < customerInNodes.Count; i++)
             {
                 (App.Current as App).displaymodelList[i].customersNr = customerInNodes[i];
             }
 
             var clientsInNodes = (App.Current as App).network.getClientNumberForEachNode();
 
-            for (int i = 1; i < clientsInNodes.Count - 1; i++)
+            for (int i = 0; i < clientsInNodes.Count; i++)
             {
                 (App.Current as App).displaymodelList[i].clientsNr = clientsInNodes[i];
             }

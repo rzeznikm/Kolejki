@@ -8,14 +8,14 @@ namespace QueryNetwork
 {
     public static class QLearningSolver
     {
-        public static float alpha = 1F;
+        //public static float alpha = 1F;
         public static float reward;
-        public static float gamma = 1F;
+        //public static float gamma = 1F;
         public static float bestExpectedValue;
         public static float QValue;
 
 
-        public static void updateRewards(ref List<Node> nodes, int baseNode, int nextNode)
+        public static void updateRewards(ref List<Node> nodes, int baseNode, int nextNode, float alpha, float gamma)
         {
             if(isLastNode(nodes,nextNode))
                 setLastNodeRewards();
