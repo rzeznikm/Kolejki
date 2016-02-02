@@ -24,6 +24,8 @@ namespace GUI
         private List<Node> nodes = null;
         private int Id = 0;
         private int percentLocal = 0;
+        private double alpha = 1;
+        private double gamma = 1;
 
         public MainWindow()
         {
