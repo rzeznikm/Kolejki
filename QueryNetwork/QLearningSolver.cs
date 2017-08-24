@@ -43,7 +43,7 @@ namespace QueryNetwork
         private static void setRewards(List<Node> nodes, int nextNode)
         {
             bestExpectedValue = nodes[nextNode].getMaximumReward();
-            if (nodes[nextNode].customerCount == (nodes[nextNode].queueMaxSize + nodes[nextNode].serviceChannelsNumber))
+            if ((!nodes[nextNode].infQueue()) && (nodes[nextNode].customerCount == (nodes[nextNode].queueMaxSize + nodes[nextNode].serviceChannelsNumber)))
                 reward = -1000F;
             else
                 reward = 0F;

@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace QueryNetwork
 {
+
     public class Network
     {
         public float alpha { get; set; }
         public float gamma { get; set; }
+        public NetworkType networkType { get; set; }
 
         private List<Node> listOfNodes; // Lista systemów w sieci
 
-        public Network(List<Node> list)
+        public Network(List<Node> list, NetworkType type)
         {
             this.listOfNodes = list;
+            this.networkType = type;
         }
 
         public void insertCustomer(int customersCount)
@@ -54,7 +57,7 @@ namespace QueryNetwork
         {
             for(int i=0;i<customerCount;i++)
             {
-                int nextNode = listOfNodes[node].getBestNextSystem();
+                int nextNode = listOfNodes[node].getNextSystem(networkType);
                 if(nextNode>0)
                 {
                     listOfNodes[nextNode].insertCustomer();

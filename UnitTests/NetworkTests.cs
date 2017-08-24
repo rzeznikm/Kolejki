@@ -100,7 +100,7 @@ namespace QueryNetwork.Tests
             nodes.Add(new Node(2, 1, 4, 4, connectionToLastSystem));
             nodes.Add(new Node(3, -1, -1, 0, new List<int>(0)));
 
-            Network network = new Network(nodes);
+            Network network = new Network(nodes, NetworkType.QLearning);
             return network;
         }
     }

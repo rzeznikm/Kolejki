@@ -4,7 +4,7 @@
         Title="Simulation" Height="487.234" Width="455.319">
     <Grid>
         <Button x:Name="BT_Run" Content="Run" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click" Height="38" RenderTransformOrigin="0.531,0.844"/>
-        <ListView Name="Results" HorizontalAlignment="Left" Height="314" Margin="110,115,0,0" VerticalAlignment="Top" Width="195">
+        <ListView Name="Results" HorizontalAlignment="Left" Height="314" Margin="29,132,0,0" VerticalAlignment="Top" Width="195">
             <ListView.View>
                 <GridView AllowsColumnReorder="True">
                     <GridView.Columns>
@@ -23,6 +23,18 @@
         <TextBlock HorizontalAlignment="Left" Margin="136,59,0,0" TextWrapping="Wrap" Text="Runs" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="251,59,0,0" TextWrapping="Wrap" Text="Clients" VerticalAlignment="Top"/>
         <Button Content="No more &#xD;&#xA;clients" HorizontalAlignment="Left" Margin="328,80,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ListView x:Name="ResultsRandom" HorizontalAlignment="Left" Height="314" Margin="242,132,0,0" VerticalAlignment="Top" Width="195">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridViewColumn Header="Id"
+        				DisplayMemberBinding="{Binding id}" Width="30" />
+                    <GridViewColumn Header="Clients Total"
+        				DisplayMemberBinding="{Binding customersNr}" Width="80" />
+                    <GridViewColumn Header="Clients Actual"
+        				DisplayMemberBinding="{Binding clientsNr}" Width="80" />
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

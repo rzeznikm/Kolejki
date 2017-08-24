@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace QueryNetwork
 {
+    public enum NetworkType { Random, QLearning };
+
     public class Node
     {
         public int id { get; set; } // Numer systemu 
@@ -49,14 +51,14 @@ namespace QueryNetwork
             }
         }
 
-        private bool infChanel()
+        public bool infChanel()
         {
             if (serviceChannelsNumber == -1)
                 return true;
             return false;
         }
 
-        private bool infQueue()
+        public bool infQueue()
         {
             if (queueMaxSize == -1)
                 return true;
@@ -108,16 +110,29 @@ namespace QueryNetwork
             return nextSystemsValues.Values.Max();
         }
 
-        public int getBestNextSystem()
+        public int getNextSystem(NetworkType networkType)
         {
-            KeyValuePair<int, float> max = new KeyValuePair<int, float>(0,Single.MinValue);
-
-            foreach(var sys in nextSystemsValues)
+            if (networkType == NetworkType.QLearning)
             {
-                if (sys.Value > max.Value)
-                    max = sys;
+                KeyValuePair<int, float> max = new KeyValuePair<int, float>(0, Single.MinValue);
+
+                foreach (var sys in nextSystemsValues)
+                {
+                    if (sys.Value > max.Value)
+                        max = sys;
+                }
+                return max.Key;
             }
-            return max.Key;
+            else if (networkType == NetworkType.Random)
+            {
+                Random randNode = new Random();
+                int nexNode = randNode.Next(0, nextSystemsValues.Count);
+                return nextSystemsValues.ElementAt(nexNode).Key;
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         public int getCheckoutsNumber()

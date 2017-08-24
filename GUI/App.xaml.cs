@@ -17,9 +17,11 @@ namespace GUI
         public string DeptName { get; set; }
 
         public Network network { get; set; }
+        public Network randomNetwork { get; set; }
 
         public int percentage { get; set; }
 
         public List<DisplayModel> displaymodelList { get; set; }
+        public List<DisplayModel> displaymodelListRandom { get; set; }
     }
 }
