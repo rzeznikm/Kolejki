@@ -18,6 +18,7 @@ namespace QueryNetwork
         private List<int> timeCounter { get; set; } //Licznik czasu obsługi
         public Dictionary<int, float> nextSystemsValues { get; set; } //Następne systemy i wartości Oczekiwane
         public int customerSum { get; set; }
+        public static Random randNode = new Random();
 
         public Node(int id, int serviceChannelsNumber, int queueMaxSize, int checkoutTime, List<int> systems)
         {
@@ -125,7 +126,7 @@ namespace QueryNetwork
             }
             else if (networkType == NetworkType.Random)
             {
-                Random randNode = new Random();
+                
                 int nexNode = randNode.Next(0, nextSystemsValues.Count);
                 return nextSystemsValues.ElementAt(nexNode).Key;
             }
@@ -162,5 +163,16 @@ namespace QueryNetwork
             nextSystemsValues[systemNumber] = newValue;
         }
 
+        public void resetNode()
+        {
+            this.customerCount = 0;
+            this.customerSum = 0;
+            this.timeCounter.Clear();
+            
+            foreach (var key in nextSystemsValues.Keys.ToList())
+            {
+                nextSystemsValues[key] = 0;
+            }
+        }
     }
 }

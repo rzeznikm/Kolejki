@@ -58,7 +58,7 @@ namespace QueryNetwork
             for(int i=0;i<customerCount;i++)
             {
                 int nextNode = listOfNodes[node].getNextSystem(networkType);
-                if(nextNode>0)
+                if(nextNode > 0)
                 {
                     listOfNodes[nextNode].insertCustomer();
                     updateRewards(ref listOfNodes, node, nextNode);
@@ -91,6 +91,44 @@ namespace QueryNetwork
             return customerSum;
         }
 
+        public bool isEmpty()
+        {
+            foreach(var node in listOfNodes)
+            {
+                if (node.customerCount > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return true;
+        }
+
+        public int geTotalCustomerCount()
+        {
+            return listOfNodes[0].customerSum;
+        }
+
+        public string getNodeTotalSummary()
+        {
+            List<string> data = new List<string>();
+            foreach(var node in listOfNodes)
+            {
+                data.Add(node.customerSum.ToString());
+            }
+            return String.Join(";", data.ToArray());
+        }
+
+        public void resetNodes()
+        {
+            for (int i = 0; i < listOfNodes.Count; i++)
+            {
+                listOfNodes[i].resetNode();
+            }
+        }
     }
 }
 

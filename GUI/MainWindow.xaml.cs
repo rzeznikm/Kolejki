@@ -123,7 +123,7 @@ namespace GUI
             win1.Show();         
         }
 
-        private static List<int> StringToIntList(string str)
+        public static List<int> StringToIntList(string str)
         {
             string[] split = str.Split(',');
             List<int> ret = new List<int>();
