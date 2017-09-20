@@ -1,40 +1,46 @@
 ﻿<Window x:Class="GUI.Window1"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Simulation" Height="487.234" Width="455.319">
+        Title="Simulation" Height="500.634" Width="489.319">
     <Grid>
-        <Button x:Name="BT_Run" Content="Run" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click" Height="38" RenderTransformOrigin="0.531,0.844"/>
-        <ListView Name="Results" HorizontalAlignment="Left" Height="314" Margin="29,132,0,0" VerticalAlignment="Top" Width="195">
-            <ListView.View>
-                <GridView AllowsColumnReorder="True">
-                    <GridView.Columns>
+        <GroupBox Header="Controll" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="82" Width="455">
+            <Grid Height="62" Margin="0,0,-2,-2" VerticalAlignment="Center" Width="445">
+                <Button x:Name="BT_Run" Content="Run" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BT_Run_Click" Height="41" RenderTransformOrigin="0.531,0.844"/>
+                <Button Content="Stop clients" HorizontalAlignment="Left" Margin="130,11,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click" Height="41"/>
+                <TextBox x:Name="TXB_Runs" HorizontalAlignment="Left" Height="23" Margin="244,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.043,1.68"/>
+                <TextBlock HorizontalAlignment="Left" Margin="268,10,0,0" TextWrapping="Wrap" Text="Runs" VerticalAlignment="Top"/>
+                <TextBox x:Name="TXB_Clients" HorizontalAlignment="Left" Height="23" Margin="360,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75"/>
+                <TextBlock HorizontalAlignment="Left" Margin="380,10,0,0" TextWrapping="Wrap" Text="Clients" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Optimalization" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Height="361" Width="225">
+            <ListView x:Name="Results" HorizontalAlignment="Left" Height="320" Margin="10,10,0,0" VerticalAlignment="Top" Width="195">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True">
                         <GridViewColumn Header="Id"
-                            DisplayMemberBinding="{Binding id}" Width="30" />
+        					DisplayMemberBinding="{Binding id}" Width="30" />
                         <GridViewColumn Header="Clients Total"
-                            DisplayMemberBinding="{Binding customersNr}" Width="80" />
+        					DisplayMemberBinding="{Binding customersNr}" Width="80" />
                         <GridViewColumn Header="Clients Actual"
-                            DisplayMemberBinding="{Binding clientsNr}" Width="80" />
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBox x:Name="TXB_Runs" HorizontalAlignment="Left" Height="23" Margin="110,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.043,1.68"/>
-        <TextBox x:Name="TXB_Clients" HorizontalAlignment="Left" Height="23" Margin="230,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock HorizontalAlignment="Left" Margin="136,59,0,0" TextWrapping="Wrap" Text="Runs" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="251,59,0,0" TextWrapping="Wrap" Text="Clients" VerticalAlignment="Top"/>
-        <Button Content="No more &#xD;&#xA;clients" HorizontalAlignment="Left" Margin="328,80,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ListView x:Name="ResultsRandom" HorizontalAlignment="Left" Height="314" Margin="242,132,0,0" VerticalAlignment="Top" Width="195">
-            <ListView.View>
-                <GridView AllowsColumnReorder="True">
-                    <GridViewColumn Header="Id"
-        				DisplayMemberBinding="{Binding id}" Width="30" />
-                    <GridViewColumn Header="Clients Total"
-        				DisplayMemberBinding="{Binding customersNr}" Width="80" />
-                    <GridViewColumn Header="Clients Actual"
-        				DisplayMemberBinding="{Binding clientsNr}" Width="80" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        					DisplayMemberBinding="{Binding clientsNr}" Width="80" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+        <GroupBox Header="No optimalization" HorizontalAlignment="Left" Margin="240,97,0,0" VerticalAlignment="Top" Height="361" Width="225">
+            <ListView x:Name="ResultsRandom" HorizontalAlignment="Left" Height="320" Margin="10,10,0,0" VerticalAlignment="Top" Width="195">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True">
+                        <GridViewColumn Header="Id"
+        					DisplayMemberBinding="{Binding id}" Width="30" />
+                        <GridViewColumn Header="Clients Total"
+        					DisplayMemberBinding="{Binding customersNr}" Width="80" />
+                        <GridViewColumn Header="Clients Actual"
+        					DisplayMemberBinding="{Binding clientsNr}" Width="80" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
 
     </Grid>
 </Window>

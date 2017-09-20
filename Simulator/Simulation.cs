@@ -42,47 +42,62 @@ namespace Simulator
             this.beta = beta;
             this.gamma = gamma;
             int CycleCounter;
+            
 
             if (type == NetworkType.QLearning)
             {
+                System.IO.StreamWriter file = new System.IO.StreamWriter("SimpleQ.csv");
+                string header = "beta;gamma;cycle;clients";
+                file.WriteLine(header);
+
                 CycleCounter = SimulateQNetworkForParam(beta, gamma);
+                List<string> data = new List<string>();
+                data.Add(beta.ToString());
+                data.Add(gamma.ToString());
+                data.Add(CycleCounter.ToString());
+                data.Add(maxClient.ToString());
+                file.WriteLine(string.Join(";", data.ToArray()) + ";" + QNetwork.getNodeTotalSummary());
+
+                file.Close();
             }
             else
             {
-                CycleCounter = SimulateRNetworkForParam();
+                System.IO.StreamWriter file = new System.IO.StreamWriter("Random.csv");
+                string header = "cycle;clients";
+                file.WriteLine(header);
+                for (int i = 0; i < 100; i++ )
+                { 
+                    CycleCounter = SimulateRNetworkForParam();
+                List<string> data = new List<string>();
+                data.Add(CycleCounter.ToString());
+                data.Add(maxClient.ToString());
+                file.WriteLine(string.Join(";", data.ToArray()) + ";" + RNetwork.getNodeTotalSummary());
+                }
+                file.Close();
             }
 
-            string header = "beta;gamma;clients;cycle";
-            List<string> data = new List<string>();
-            data.Add(beta.ToString());
-            data.Add(gamma.ToString());
-            data.Add(maxClient.ToString());
-            data.Add(CycleCounter.ToString());
-            System.IO.StreamWriter file = new System.IO.StreamWriter("SimpleQ.csv");
-            file.WriteLine(header);
-            file.WriteLine(string.Join(";",data.ToArray()));
-            file.WriteLine(QNetwork.getNodeTotalSummary());
-            file.Close();
+           
+            
+
         }
 
         public void StartOtpimalization()
         {
-            string header = "beta;gamma;clients;cycle";
+            string header = "beta;gamma;cycle;clients";
             System.IO.StreamWriter file = new System.IO.StreamWriter("OptiQ.csv");
             file.WriteLine(header);
             Console.WriteLine("Start!");
-            for (float beta = 0.01F; beta <= 1.0F; beta += 0.01F)
+            for (float beta = 0.1F; beta <= 1.0F; beta += 0.1F)
             {
-                for (float gamma = 0.01F; gamma <= 1.0F; gamma += 0.01F)
+                for (float gamma = 0.1F; gamma <= 1.0F; gamma += 0.1F)
                 {
                     int CycleCounter = SimulateQNetworkForParam(beta, gamma);
                     List<string> data = new List<string>();
                     data.Add(beta.ToString("0.00"));
                     data.Add(gamma.ToString("0.00"));
-                    data.Add(maxClient.ToString());
                     data.Add(CycleCounter.ToString());
-                    data.Add(clientsInput.Count.ToString());
-                    file.WriteLine(string.Join(";", data.ToArray()));
+                    data.Add(maxClient.ToString());
+                    file.WriteLine(string.Join(";", data.ToArray()) + ";" + QNetwork.getNodeTotalSummary());
                 }
             }
             file.Close();

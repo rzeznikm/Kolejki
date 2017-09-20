@@ -14,15 +14,17 @@ namespace Simulator
             string line;
             List<int> nodeDescription = new List<int>();
             List<Node> nodes = new List<Node>();
-            System.IO.StreamReader file = new System.IO.StreamReader("c:\\test.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader("c:\\test2.txt");
             while ((line = file.ReadLine()) != null)
             {
                 nodes.Add(Simulation.GetNodeFromLine(line));
             }
 
-            Simulation simulation = new Simulation(nodes, 500, 5);
-
+            Simulation simulation = new Simulation(nodes, 1000, 5);
+            
+            //simulation.StartQLearningSimulation(0.5F, 0.5F, NetworkType.QLearning);
             simulation.StartQLearningSimulation(0.5F, 0.5F, NetworkType.Random);
+            
             simulation.StartOtpimalization();
 
             file.Close();
